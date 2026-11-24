@@ -2,7 +2,7 @@
 name = "uwm"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = ["torch", "numpy", "scipy", "scikit-learn", "minari[hf]", "gymnasium[mujoco]", "pandas", "matplotlib"]
+dependencies = ["torch", "numpy", "scipy", "scikit-learn", "minari[hf,hdf5]", "gymnasium[mujoco]", "pandas", "matplotlib"]
 
 [tool.setuptools]
 packages = ["uwm"]

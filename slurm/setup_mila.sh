@@ -5,7 +5,7 @@ module load python/3.10
 python -m venv $HOME/venvs/uwm
 source $HOME/venvs/uwm/bin/activate
 pip install --upgrade pip
-pip install torch "minari[hf]" "gymnasium[mujoco]" numpy scipy scikit-learn pandas matplotlib
+pip install torch "minari[hf,hdf5]" "gymnasium[mujoco]" numpy scipy scikit-learn pandas matplotlib
 pip install -e "$(dirname "$0")/.."
 export MINARI_DATASETS_PATH=$SCRATCH/minari
 # pre-download datasets so compute jobs never depend on the network
