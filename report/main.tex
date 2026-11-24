@@ -155,7 +155,7 @@ env-dependent (HalfCheetah 0.71, Hopper 0.36).}
 \caption{Uncertainty quality on held-out data (mean feedback, mean over 3 seeds).
 \todo{fill from \texttt{results.csv}}}
 \label{tab:uncertainty}
-\small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{llccc}
 \toprule
 Env & Ensemble & RMSE@100 & 1$\sigma$ cov.\ (epi) & Spearman (fixed $k$) \\
@@ -168,7 +168,7 @@ Env & Ensemble & RMSE@100 & 1$\sigma$ cov.\ (epi) & Spearman (fixed $k$) \\
 Hopper   & \dots & & & \\
 Walker2d & \dots & & & \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Ranking is not a horizon artifact (H2)}
