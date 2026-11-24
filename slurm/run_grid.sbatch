@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=24G
-#SBATCH --time=4:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=logs/%x_%A_%a.out
 set -euo pipefail
 module load python/3.10
