@@ -14,5 +14,15 @@ for env in ["halfcheetah", "hopper", "walker2d"]:
         for s in [0, 1, 2]:
             for tag, extra in PEN:
                 rows.append(f"{env}_{wm}_{tag}_s{s}|{env}_{wm}_s{s}|{extra} --seed {s}")
+# Penalty-strength sweep (rescaled penalties only): lam=1 turned out far too weak (see README).
+lam_rows = []
+for env in ["halfcheetah", "hopper", "walker2d"]:
+    for wm in ["shared_none", "independent_none"]:
+        for s in [0, 1, 2]:
+            for pen in ["epi", "ale", "pair"]:
+                for lam in [3, 10, 30, 100]:
+                    lam_rows.append(f"{env}_{wm}_{pen}_norm_lam{lam}_s{s}|{env}_{wm}_s{s}|--penalty {pen} --lam {lam} --seed {s}")
+Path(__file__).with_name("policy_grid_lam.txt").write_text("\n".join(lam_rows) + "\n")
+print(len(lam_rows), "lam-sweep jobs")
 Path(__file__).with_name("policy_grid.txt").write_text("\n".join(rows) + "\n")
 print(len(rows), "jobs")

@@ -1,5 +1,6 @@
 #!/bin/bash
 # Submit with:  sbatch --array=0-125%20 slurm/run_policy.sbatch
+# λ sweep:      GRID=slurm/policy_grid_lam.txt sbatch --export=ALL --array=0-215%20 slurm/run_policy.sbatch
 #SBATCH --job-name=uwm-pol
 #SBATCH --partition=long
 #SBATCH --gres=gpu:1
@@ -14,7 +15,7 @@ export MINARI_DATASETS_PATH=$SCRATCH/minari
 export MUJOCO_GL=egl
 cd "$SLURM_SUBMIT_DIR"
 
-LINE=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" slurm/policy_grid.txt)
+LINE=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" ${GRID:-slurm/policy_grid.txt})
 IFS='|' read -r NAME WM EXTRA <<< "$LINE"
 OUT=$SCRATCH/uwm_policy/$NAME
 echo "[$NAME] wm=$WM $EXTRA"
