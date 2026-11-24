@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 KEYS = ["real_return", "real_len", "dataset_return", "img_reward_per_step", "real_reward_per_step",
-        "exploitation_gap", "u_mean_rel", "u_epi_rel", "act_saturated"]
+        "exploitation_gap", "u_mean_rel", "u_epi_rel", "bc_d_rel", "act_saturated"]
 
 
 def main(argv=None):
@@ -33,7 +33,7 @@ def main(argv=None):
                          img_reward_per_step=r["final_img_reward_per_step"],
                          real_reward_per_step=fr["per_step"], exploitation_gap=r["exploitation_gap"],
                          u_mean_rel=r.get("final_u_mean_rel"), act_saturated=r.get("final_act_saturated"),
-                         u_epi_rel=r.get("final_u_epi_rel")))
+                         u_epi_rel=r.get("final_u_epi_rel"), bc_d_rel=r.get("final_bc_d_rel")))
     df = pd.DataFrame(rows)
     df.to_csv(Path(a.out).with_suffix(".raw.csv"), index=False)
     g = df.groupby(["env", "wm", "penalty", "lam"])[KEYS].agg(["mean", "std"])

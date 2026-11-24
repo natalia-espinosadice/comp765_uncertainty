@@ -179,6 +179,46 @@ def evaluate_real(ac, env, norm, dev, episodes, seed):
                 rets=rets, per_step=float(np.sum(rets) / np.sum(lens)))
 
 
+# --------------------------------------------------------------------------- action-support penalty
+
+class BCGaussian(nn.Module):
+    """Behaviour-cloning Gaussian pi_b(a|o) fitted to the dataset (state-dependent mean and std)."""
+
+    def __init__(self, D, A, w=256):
+        super().__init__()
+        self.net = nn.Sequential(nn.Linear(D, w), nn.ReLU(), nn.Linear(w, w), nn.ReLU(), nn.Linear(w, 2 * A))
+        self.A = A
+
+    def forward(self, o):
+        out = self.net(o)
+        return out[..., :self.A], out[..., self.A:].clamp(-5, 1)
+
+    def dist2(self, o, a):
+        """Mean over action dims of the squared z-score of a under pi_b(.|o); ~1 on dataset actions."""
+        mu, ls = self(o)
+        return (((a - mu) / ls.exp()) ** 2).mean(-1)
+
+
+def fit_bc(train_eps, norm, dev, iters=5000, batch=2048, seed=0):
+    o = np.concatenate([np.clip(norm.obs(e["obs"][:-1]), -OBS_CLIP, OBS_CLIP) for e in train_eps]).astype(np.float32)
+    a = np.concatenate([e["act"] for e in train_eps]).astype(np.float32)
+    o, a = torch.from_numpy(o).to(dev), torch.from_numpy(a).to(dev)
+    g = torch.Generator(device="cpu").manual_seed(seed)
+    bc = BCGaussian(o.shape[1], a.shape[1]).to(dev)
+    opt = torch.optim.Adam(bc.parameters(), lr=1e-3)
+    for _ in range(iters):
+        i = torch.randint(0, len(o), (batch,), generator=g).to(dev)
+        mu, ls = bc(o[i])
+        loss = (0.5 * ((a[i] - mu) / ls.exp()) ** 2 + ls).mean()
+        opt.zero_grad(set_to_none=True); loss.backward(); opt.step()
+    bc.eval()
+    for q in bc.parameters():
+        q.requires_grad_(False)
+    with torch.no_grad():
+        ref = float(bc.dist2(o[:50_000], a[:50_000]).mean())
+    return bc, ref
+
+
 # --------------------------------------------------------------------------- main
 
 def main(argv=None):
@@ -200,6 +240,8 @@ def main(argv=None):
     p.add_argument("--eval-episodes", type=int, default=5)
     p.add_argument("--final-episodes", type=int, default=10)
     p.add_argument("--max-episodes", type=int, default=None, help="cap dataset size (smoke tests)")
+    p.add_argument("--bc-coef", type=float, default=0.0,
+                   help="weight of the action-support penalty (squared z-score under a BC fit of the data)")
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--out", required=True)
     a = p.parse_args(argv)
@@ -228,6 +270,7 @@ def main(argv=None):
     r_mean = torch.tensor(norm.r_mean, device=dev); r_std = torch.tensor(norm.r_std, device=dev)
     o_mean = torch.as_tensor(norm.mean, device=dev); o_std = torch.as_tensor(norm.std, device=dev)
     img = Imagination(model)
+    bc, bc_ref = (fit_bc(train_eps, norm, dev, seed=a.seed) if a.bc_coef > 0 else (None, float("nan")))
 
     def starts(n):
         o, ac, _ = W.get(rng.integers(0, len(W), n))
@@ -244,7 +287,8 @@ def main(argv=None):
             u_ref[k] = float(penalty(k, mu, ls).mean())
     scale = 1.0 if (a.raw or a.penalty == "none") else 1.0 / u_ref[a.penalty]
     lam = 0.0 if a.penalty == "none" else a.lam
-    print(f"[policy] env={kind} wm={a.wm} penalty={a.penalty} lam={lam} raw={a.raw} u_ref={u_ref} "
+    print(f"[policy] env={kind} wm={a.wm} penalty={a.penalty} lam={lam} raw={a.raw} bc={a.bc_coef} "
+          f"bc_ref={bc_ref:.2f} u_ref={u_ref} "
           f"dataset return={data_ret:.1f} (len {data_len:.0f}) dev={dev}", flush=True)
 
     D, A = ck["D"], ck["A"]
@@ -260,7 +304,7 @@ def main(argv=None):
         logp_b = torch.zeros(H, B, device=dev); rew_b = torch.zeros(H, B, device=dev)
         val_b = torch.zeros(H + 1, B, device=dev); alive_b = torch.zeros(H, B, device=dev)
         done_b = torch.zeros(H, B, device=dev)
-        r_model_sum = torch.zeros(B, device=dev); u_sum = 0.0; n_alive = 0.0; sat = 0.0; ue_sum = 0.0
+        r_model_sum = torch.zeros(B, device=dev); u_sum = 0.0; n_alive = 0.0; sat = 0.0; ue_sum = 0.0; bc_sum = 0.0
         with torch.no_grad():
             oh, ah, _ = starts(B)
             img.reset(oh, ah)
@@ -273,7 +317,10 @@ def main(argv=None):
                 mu, ls, r = img.step(act.clamp(-1, 1))
                 r_real = r.mean(0) * r_std + r_mean
                 u = penalty(a.penalty, mu, ls)
-                rew_b[t] = (r_real / r_std - lam * scale * u) * alive
+                ab = act.clamp(-1, 1)
+                d_bc = bc.dist2(o, ab) / bc_ref if bc is not None else torch.zeros_like(u)
+                rew_b[t] = (r_real / r_std - lam * scale * u - a.bc_coef * d_bc) * alive
+                bc_sum += float((d_bc * alive).sum())
                 r_model_sum += r_real * alive
                 u_sum += float((u * alive).sum()); n_alive += float(alive.sum())
                 ue_sum += float((penalty("epi", mu, ls) * alive).sum())   # logged for every run
@@ -315,7 +362,7 @@ def main(argv=None):
                    img_alive_frac=float(alive_b.mean()), u_mean=u_sum / n_alive,
                    u_mean_rel=(u_sum / n_alive) / u_ref[a.penalty] if a.penalty != "none" else 0.0,
                    pi_std=float(ac.log_std.exp().mean()), act_saturated=sat / n_alive,
-                   u_epi_rel=(ue_sum / n_alive) / u_ref["epi"], sec=time.time() - t0)
+                   u_epi_rel=(ue_sum / n_alive) / u_ref["epi"], bc_d_rel=bc_sum / n_alive, sec=time.time() - t0)
         if it % a.eval_every == 0 or it == a.iters:
             ev = evaluate_real(ac, env, norm, dev, a.final_episodes if it == a.iters else a.eval_episodes,
                                seed=10_000 + it)
@@ -332,7 +379,7 @@ def main(argv=None):
     result = dict(args=vars(a), wm_args=wa, env=kind, u_ref=u_ref, dataset_return=data_ret,
                   dataset_len=data_len, final_real=final, evals=evals,
                   final_img_reward_per_step=log[-1]["img_reward_per_step"], final_u_mean_rel=log[-1]["u_mean_rel"],
-                  final_act_saturated=log[-1]["act_saturated"], final_u_epi_rel=log[-1]["u_epi_rel"],
+                  final_act_saturated=log[-1]["act_saturated"], final_u_epi_rel=log[-1]["u_epi_rel"], final_bc_d_rel=log[-1]["bc_d_rel"],
                   exploitation_gap=log[-1]["img_reward_per_step"] - final["per_step"])
     (out / "result.json").write_text(json.dumps(result, indent=1))
     print(f"[done] real return {final['ret_mean']:.1f} ± {final['ret_std']:.1f} (dataset {data_ret:.1f}); "

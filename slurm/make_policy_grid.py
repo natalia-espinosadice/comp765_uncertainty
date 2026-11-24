@@ -30,5 +30,17 @@ none_rows = [f"{env}_{wm}_none_v2_s{s}|{env}_{wm}_s{s}|--penalty none --seed {s}
              for s in [0, 1, 2]]
 Path(__file__).with_name("policy_grid_none.txt").write_text("\n".join(none_rows) + "\n")
 print(len(none_rows), "baseline re-runs")
+# Proposed fix: action-support penalty (squared z-score of the action under a BC fit of the data),
+# alone and combined with the paper's epistemic penalty (rescaled, lam=10).
+bc_rows = []
+for env in ["halfcheetah", "hopper", "walker2d"]:
+    for wm in ["shared_none", "independent_none"]:
+        for s in [0, 1, 2]:
+            for b in ["0.1", "0.3", "1", "3"]:
+                bc_rows.append(f"{env}_{wm}_bc{b}_s{s}|{env}_{wm}_s{s}|--penalty none --bc-coef {b} --seed {s}")
+                bc_rows.append(f"{env}_{wm}_epi_norm_bc{b}_lam10_s{s}|{env}_{wm}_s{s}|"
+                               f"--penalty epi --lam 10 --bc-coef {b} --seed {s}")
+Path(__file__).with_name("policy_grid_bc.txt").write_text("\n".join(bc_rows) + "\n")
+print(len(bc_rows), "action-penalty jobs")
 Path(__file__).with_name("policy_grid.txt").write_text("\n".join(rows) + "\n")
 print(len(rows), "jobs")

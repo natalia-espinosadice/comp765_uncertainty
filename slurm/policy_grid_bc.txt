@@ -1,0 +1,144 @@
+halfcheetah_shared_none_bc0.1_s0|halfcheetah_shared_none_s0|--penalty none --bc-coef 0.1 --seed 0
+halfcheetah_shared_none_epi_norm_bc0.1_lam10_s0|halfcheetah_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+halfcheetah_shared_none_bc0.3_s0|halfcheetah_shared_none_s0|--penalty none --bc-coef 0.3 --seed 0
+halfcheetah_shared_none_epi_norm_bc0.3_lam10_s0|halfcheetah_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+halfcheetah_shared_none_bc1_s0|halfcheetah_shared_none_s0|--penalty none --bc-coef 1 --seed 0
+halfcheetah_shared_none_epi_norm_bc1_lam10_s0|halfcheetah_shared_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+halfcheetah_shared_none_bc3_s0|halfcheetah_shared_none_s0|--penalty none --bc-coef 3 --seed 0
+halfcheetah_shared_none_epi_norm_bc3_lam10_s0|halfcheetah_shared_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+halfcheetah_shared_none_bc0.1_s1|halfcheetah_shared_none_s1|--penalty none --bc-coef 0.1 --seed 1
+halfcheetah_shared_none_epi_norm_bc0.1_lam10_s1|halfcheetah_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+halfcheetah_shared_none_bc0.3_s1|halfcheetah_shared_none_s1|--penalty none --bc-coef 0.3 --seed 1
+halfcheetah_shared_none_epi_norm_bc0.3_lam10_s1|halfcheetah_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+halfcheetah_shared_none_bc1_s1|halfcheetah_shared_none_s1|--penalty none --bc-coef 1 --seed 1
+halfcheetah_shared_none_epi_norm_bc1_lam10_s1|halfcheetah_shared_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+halfcheetah_shared_none_bc3_s1|halfcheetah_shared_none_s1|--penalty none --bc-coef 3 --seed 1
+halfcheetah_shared_none_epi_norm_bc3_lam10_s1|halfcheetah_shared_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+halfcheetah_shared_none_bc0.1_s2|halfcheetah_shared_none_s2|--penalty none --bc-coef 0.1 --seed 2
+halfcheetah_shared_none_epi_norm_bc0.1_lam10_s2|halfcheetah_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+halfcheetah_shared_none_bc0.3_s2|halfcheetah_shared_none_s2|--penalty none --bc-coef 0.3 --seed 2
+halfcheetah_shared_none_epi_norm_bc0.3_lam10_s2|halfcheetah_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+halfcheetah_shared_none_bc1_s2|halfcheetah_shared_none_s2|--penalty none --bc-coef 1 --seed 2
+halfcheetah_shared_none_epi_norm_bc1_lam10_s2|halfcheetah_shared_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+halfcheetah_shared_none_bc3_s2|halfcheetah_shared_none_s2|--penalty none --bc-coef 3 --seed 2
+halfcheetah_shared_none_epi_norm_bc3_lam10_s2|halfcheetah_shared_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
+halfcheetah_independent_none_bc0.1_s0|halfcheetah_independent_none_s0|--penalty none --bc-coef 0.1 --seed 0
+halfcheetah_independent_none_epi_norm_bc0.1_lam10_s0|halfcheetah_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+halfcheetah_independent_none_bc0.3_s0|halfcheetah_independent_none_s0|--penalty none --bc-coef 0.3 --seed 0
+halfcheetah_independent_none_epi_norm_bc0.3_lam10_s0|halfcheetah_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+halfcheetah_independent_none_bc1_s0|halfcheetah_independent_none_s0|--penalty none --bc-coef 1 --seed 0
+halfcheetah_independent_none_epi_norm_bc1_lam10_s0|halfcheetah_independent_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+halfcheetah_independent_none_bc3_s0|halfcheetah_independent_none_s0|--penalty none --bc-coef 3 --seed 0
+halfcheetah_independent_none_epi_norm_bc3_lam10_s0|halfcheetah_independent_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+halfcheetah_independent_none_bc0.1_s1|halfcheetah_independent_none_s1|--penalty none --bc-coef 0.1 --seed 1
+halfcheetah_independent_none_epi_norm_bc0.1_lam10_s1|halfcheetah_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+halfcheetah_independent_none_bc0.3_s1|halfcheetah_independent_none_s1|--penalty none --bc-coef 0.3 --seed 1
+halfcheetah_independent_none_epi_norm_bc0.3_lam10_s1|halfcheetah_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+halfcheetah_independent_none_bc1_s1|halfcheetah_independent_none_s1|--penalty none --bc-coef 1 --seed 1
+halfcheetah_independent_none_epi_norm_bc1_lam10_s1|halfcheetah_independent_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+halfcheetah_independent_none_bc3_s1|halfcheetah_independent_none_s1|--penalty none --bc-coef 3 --seed 1
+halfcheetah_independent_none_epi_norm_bc3_lam10_s1|halfcheetah_independent_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+halfcheetah_independent_none_bc0.1_s2|halfcheetah_independent_none_s2|--penalty none --bc-coef 0.1 --seed 2
+halfcheetah_independent_none_epi_norm_bc0.1_lam10_s2|halfcheetah_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+halfcheetah_independent_none_bc0.3_s2|halfcheetah_independent_none_s2|--penalty none --bc-coef 0.3 --seed 2
+halfcheetah_independent_none_epi_norm_bc0.3_lam10_s2|halfcheetah_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+halfcheetah_independent_none_bc1_s2|halfcheetah_independent_none_s2|--penalty none --bc-coef 1 --seed 2
+halfcheetah_independent_none_epi_norm_bc1_lam10_s2|halfcheetah_independent_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+halfcheetah_independent_none_bc3_s2|halfcheetah_independent_none_s2|--penalty none --bc-coef 3 --seed 2
+halfcheetah_independent_none_epi_norm_bc3_lam10_s2|halfcheetah_independent_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
+hopper_shared_none_bc0.1_s0|hopper_shared_none_s0|--penalty none --bc-coef 0.1 --seed 0
+hopper_shared_none_epi_norm_bc0.1_lam10_s0|hopper_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+hopper_shared_none_bc0.3_s0|hopper_shared_none_s0|--penalty none --bc-coef 0.3 --seed 0
+hopper_shared_none_epi_norm_bc0.3_lam10_s0|hopper_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+hopper_shared_none_bc1_s0|hopper_shared_none_s0|--penalty none --bc-coef 1 --seed 0
+hopper_shared_none_epi_norm_bc1_lam10_s0|hopper_shared_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+hopper_shared_none_bc3_s0|hopper_shared_none_s0|--penalty none --bc-coef 3 --seed 0
+hopper_shared_none_epi_norm_bc3_lam10_s0|hopper_shared_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+hopper_shared_none_bc0.1_s1|hopper_shared_none_s1|--penalty none --bc-coef 0.1 --seed 1
+hopper_shared_none_epi_norm_bc0.1_lam10_s1|hopper_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+hopper_shared_none_bc0.3_s1|hopper_shared_none_s1|--penalty none --bc-coef 0.3 --seed 1
+hopper_shared_none_epi_norm_bc0.3_lam10_s1|hopper_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+hopper_shared_none_bc1_s1|hopper_shared_none_s1|--penalty none --bc-coef 1 --seed 1
+hopper_shared_none_epi_norm_bc1_lam10_s1|hopper_shared_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+hopper_shared_none_bc3_s1|hopper_shared_none_s1|--penalty none --bc-coef 3 --seed 1
+hopper_shared_none_epi_norm_bc3_lam10_s1|hopper_shared_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+hopper_shared_none_bc0.1_s2|hopper_shared_none_s2|--penalty none --bc-coef 0.1 --seed 2
+hopper_shared_none_epi_norm_bc0.1_lam10_s2|hopper_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+hopper_shared_none_bc0.3_s2|hopper_shared_none_s2|--penalty none --bc-coef 0.3 --seed 2
+hopper_shared_none_epi_norm_bc0.3_lam10_s2|hopper_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+hopper_shared_none_bc1_s2|hopper_shared_none_s2|--penalty none --bc-coef 1 --seed 2
+hopper_shared_none_epi_norm_bc1_lam10_s2|hopper_shared_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+hopper_shared_none_bc3_s2|hopper_shared_none_s2|--penalty none --bc-coef 3 --seed 2
+hopper_shared_none_epi_norm_bc3_lam10_s2|hopper_shared_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
+hopper_independent_none_bc0.1_s0|hopper_independent_none_s0|--penalty none --bc-coef 0.1 --seed 0
+hopper_independent_none_epi_norm_bc0.1_lam10_s0|hopper_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+hopper_independent_none_bc0.3_s0|hopper_independent_none_s0|--penalty none --bc-coef 0.3 --seed 0
+hopper_independent_none_epi_norm_bc0.3_lam10_s0|hopper_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+hopper_independent_none_bc1_s0|hopper_independent_none_s0|--penalty none --bc-coef 1 --seed 0
+hopper_independent_none_epi_norm_bc1_lam10_s0|hopper_independent_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+hopper_independent_none_bc3_s0|hopper_independent_none_s0|--penalty none --bc-coef 3 --seed 0
+hopper_independent_none_epi_norm_bc3_lam10_s0|hopper_independent_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+hopper_independent_none_bc0.1_s1|hopper_independent_none_s1|--penalty none --bc-coef 0.1 --seed 1
+hopper_independent_none_epi_norm_bc0.1_lam10_s1|hopper_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+hopper_independent_none_bc0.3_s1|hopper_independent_none_s1|--penalty none --bc-coef 0.3 --seed 1
+hopper_independent_none_epi_norm_bc0.3_lam10_s1|hopper_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+hopper_independent_none_bc1_s1|hopper_independent_none_s1|--penalty none --bc-coef 1 --seed 1
+hopper_independent_none_epi_norm_bc1_lam10_s1|hopper_independent_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+hopper_independent_none_bc3_s1|hopper_independent_none_s1|--penalty none --bc-coef 3 --seed 1
+hopper_independent_none_epi_norm_bc3_lam10_s1|hopper_independent_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+hopper_independent_none_bc0.1_s2|hopper_independent_none_s2|--penalty none --bc-coef 0.1 --seed 2
+hopper_independent_none_epi_norm_bc0.1_lam10_s2|hopper_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+hopper_independent_none_bc0.3_s2|hopper_independent_none_s2|--penalty none --bc-coef 0.3 --seed 2
+hopper_independent_none_epi_norm_bc0.3_lam10_s2|hopper_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+hopper_independent_none_bc1_s2|hopper_independent_none_s2|--penalty none --bc-coef 1 --seed 2
+hopper_independent_none_epi_norm_bc1_lam10_s2|hopper_independent_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+hopper_independent_none_bc3_s2|hopper_independent_none_s2|--penalty none --bc-coef 3 --seed 2
+hopper_independent_none_epi_norm_bc3_lam10_s2|hopper_independent_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
+walker2d_shared_none_bc0.1_s0|walker2d_shared_none_s0|--penalty none --bc-coef 0.1 --seed 0
+walker2d_shared_none_epi_norm_bc0.1_lam10_s0|walker2d_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+walker2d_shared_none_bc0.3_s0|walker2d_shared_none_s0|--penalty none --bc-coef 0.3 --seed 0
+walker2d_shared_none_epi_norm_bc0.3_lam10_s0|walker2d_shared_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+walker2d_shared_none_bc1_s0|walker2d_shared_none_s0|--penalty none --bc-coef 1 --seed 0
+walker2d_shared_none_epi_norm_bc1_lam10_s0|walker2d_shared_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+walker2d_shared_none_bc3_s0|walker2d_shared_none_s0|--penalty none --bc-coef 3 --seed 0
+walker2d_shared_none_epi_norm_bc3_lam10_s0|walker2d_shared_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+walker2d_shared_none_bc0.1_s1|walker2d_shared_none_s1|--penalty none --bc-coef 0.1 --seed 1
+walker2d_shared_none_epi_norm_bc0.1_lam10_s1|walker2d_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+walker2d_shared_none_bc0.3_s1|walker2d_shared_none_s1|--penalty none --bc-coef 0.3 --seed 1
+walker2d_shared_none_epi_norm_bc0.3_lam10_s1|walker2d_shared_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+walker2d_shared_none_bc1_s1|walker2d_shared_none_s1|--penalty none --bc-coef 1 --seed 1
+walker2d_shared_none_epi_norm_bc1_lam10_s1|walker2d_shared_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+walker2d_shared_none_bc3_s1|walker2d_shared_none_s1|--penalty none --bc-coef 3 --seed 1
+walker2d_shared_none_epi_norm_bc3_lam10_s1|walker2d_shared_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+walker2d_shared_none_bc0.1_s2|walker2d_shared_none_s2|--penalty none --bc-coef 0.1 --seed 2
+walker2d_shared_none_epi_norm_bc0.1_lam10_s2|walker2d_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+walker2d_shared_none_bc0.3_s2|walker2d_shared_none_s2|--penalty none --bc-coef 0.3 --seed 2
+walker2d_shared_none_epi_norm_bc0.3_lam10_s2|walker2d_shared_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+walker2d_shared_none_bc1_s2|walker2d_shared_none_s2|--penalty none --bc-coef 1 --seed 2
+walker2d_shared_none_epi_norm_bc1_lam10_s2|walker2d_shared_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+walker2d_shared_none_bc3_s2|walker2d_shared_none_s2|--penalty none --bc-coef 3 --seed 2
+walker2d_shared_none_epi_norm_bc3_lam10_s2|walker2d_shared_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
+walker2d_independent_none_bc0.1_s0|walker2d_independent_none_s0|--penalty none --bc-coef 0.1 --seed 0
+walker2d_independent_none_epi_norm_bc0.1_lam10_s0|walker2d_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.1 --seed 0
+walker2d_independent_none_bc0.3_s0|walker2d_independent_none_s0|--penalty none --bc-coef 0.3 --seed 0
+walker2d_independent_none_epi_norm_bc0.3_lam10_s0|walker2d_independent_none_s0|--penalty epi --lam 10 --bc-coef 0.3 --seed 0
+walker2d_independent_none_bc1_s0|walker2d_independent_none_s0|--penalty none --bc-coef 1 --seed 0
+walker2d_independent_none_epi_norm_bc1_lam10_s0|walker2d_independent_none_s0|--penalty epi --lam 10 --bc-coef 1 --seed 0
+walker2d_independent_none_bc3_s0|walker2d_independent_none_s0|--penalty none --bc-coef 3 --seed 0
+walker2d_independent_none_epi_norm_bc3_lam10_s0|walker2d_independent_none_s0|--penalty epi --lam 10 --bc-coef 3 --seed 0
+walker2d_independent_none_bc0.1_s1|walker2d_independent_none_s1|--penalty none --bc-coef 0.1 --seed 1
+walker2d_independent_none_epi_norm_bc0.1_lam10_s1|walker2d_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.1 --seed 1
+walker2d_independent_none_bc0.3_s1|walker2d_independent_none_s1|--penalty none --bc-coef 0.3 --seed 1
+walker2d_independent_none_epi_norm_bc0.3_lam10_s1|walker2d_independent_none_s1|--penalty epi --lam 10 --bc-coef 0.3 --seed 1
+walker2d_independent_none_bc1_s1|walker2d_independent_none_s1|--penalty none --bc-coef 1 --seed 1
+walker2d_independent_none_epi_norm_bc1_lam10_s1|walker2d_independent_none_s1|--penalty epi --lam 10 --bc-coef 1 --seed 1
+walker2d_independent_none_bc3_s1|walker2d_independent_none_s1|--penalty none --bc-coef 3 --seed 1
+walker2d_independent_none_epi_norm_bc3_lam10_s1|walker2d_independent_none_s1|--penalty epi --lam 10 --bc-coef 3 --seed 1
+walker2d_independent_none_bc0.1_s2|walker2d_independent_none_s2|--penalty none --bc-coef 0.1 --seed 2
+walker2d_independent_none_epi_norm_bc0.1_lam10_s2|walker2d_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.1 --seed 2
+walker2d_independent_none_bc0.3_s2|walker2d_independent_none_s2|--penalty none --bc-coef 0.3 --seed 2
+walker2d_independent_none_epi_norm_bc0.3_lam10_s2|walker2d_independent_none_s2|--penalty epi --lam 10 --bc-coef 0.3 --seed 2
+walker2d_independent_none_bc1_s2|walker2d_independent_none_s2|--penalty none --bc-coef 1 --seed 2
+walker2d_independent_none_epi_norm_bc1_lam10_s2|walker2d_independent_none_s2|--penalty epi --lam 10 --bc-coef 1 --seed 2
+walker2d_independent_none_bc3_s2|walker2d_independent_none_s2|--penalty none --bc-coef 3 --seed 2
+walker2d_independent_none_epi_norm_bc3_lam10_s2|walker2d_independent_none_s2|--penalty epi --lam 10 --bc-coef 3 --seed 2
