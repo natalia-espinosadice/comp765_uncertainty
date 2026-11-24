@@ -1,0 +1,234 @@
+% COMP 765 Final Project -- two-column conference template (IEEEtran, built into Overleaf)
+% Compile with pdfLaTeX + BibTeX. Target length: 6--8 pages including figures.
+\documentclass[conference]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}          % nice tables: \toprule \midrule \bottomrule
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+% --- handy macros -----------------------------------------------------------
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\rwmu}{RWM-U}
+\newcommand{\uepi}{u_{\text{epi}}}
+\graphicspath{{figures/}}
+
+\title{Ranks Well, Penalizes Poorly: Testing the Uncertainty Penalty
+of the Uncertainty-Aware Robotic World Model}
+
+\author{\IEEEauthorblockN{Natalia Espinosa-Dice}
+\IEEEauthorblockA{COMP 765, McGill University\\
+\texttt{\todo{email}}}}
+
+\begin{document}
+\maketitle
+
+% =============================================================================
+\begin{abstract}
+\todo{4--6 sentences. (1) Context: offline model-based RL trains policies inside a learned world
+model; \rwmu{} penalizes reward by ensemble disagreement. (2) Gap: the estimate is known to be
+overconfident on one robot, but whether that matters for the policy was untested. (3) What we do:
+reimplement the estimator on three MuJoCo tasks, ablate the ensemble design, and train 504
+policies under different penalties. (4) Main result: ranks errors, too small; policies exploit
+errors all members share; strong penalties reward early termination; an action-support penalty
+helps Hopper but not HalfCheetah. (5) Takeaway.}
+\end{abstract}
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+\todo{Motivation: learned simulators for robots; offline data; model exploitation.}
+
+\todo{The target paper: \rwmu{}~\cite{li2025rwmu} + MOPO-PPO; Fig.~3 claim that epistemic
+uncertainty tracks error.}
+
+\todo{Recent evidence it is overconfident~\cite{singh2026ranking,singh2026auditing}, on one robot,
+without testing the effect on policies.}
+
+\noindent\textbf{Hypotheses.}
+\begin{itemize}
+  \item \textbf{H1} The shared-trunk ensemble design causes the overconfidence (independent trunks,
+        bootstrapping, more members should fix it).
+  \item \textbf{H2} Uncertainty tracks error mostly because both grow with horizon.
+  \item \textbf{H3} Uncertainty detects shifted data less well than the true error would.
+  \item \textbf{H4} The choice and scale of the uncertainty penalty determine whether a policy
+        trained in imagination transfers to the real environment.
+\end{itemize}
+
+\noindent\textbf{Contributions.} \todo{3--4 bullets; be explicit about what replicates prior
+work vs.\ what is new.}
+
+% =============================================================================
+\section{Related Work}
+\label{sec:related}
+\todo{Write in your own words. Compare with work seen in class and peers' papers.}
+
+\paragraph{Learned world models for robotics}
+\todo{RWM~\cite{li2025rwm}, \rwmu{}~\cite{li2025rwmu}; Dreamer-style models if covered in class.}
+
+\paragraph{Uncertainty in model-based RL}
+\todo{Deep ensembles~\cite{lakshminarayanan2017ensembles}, PETS~\cite{chua2018pets},
+MBPO~\cite{janner2019mbpo}; calibration~\cite{kuleshov2018calibrated}.}
+
+\paragraph{Offline RL and conservatism}
+\todo{MOPO~\cite{yu2020mopo}, MOReL~\cite{kidambi2020morel}, CQL~\cite{kumar2020cql},
+behaviour regularization (TD3+BC~\cite{fujimoto2021td3bc}); benchmarks~\cite{fu2020d4rl,minari}.}
+
+\paragraph{Follow-up analyses of \rwmu{}}
+\todo{Singh~\cite{singh2026ranking,singh2026auditing}: ranks errors well (Spearman 0.90) but
+4.6\% 1$\sigma$ coverage; variance collapse from the sampled-squared-error loss; independent
+ensembles help; no policy trained in~\cite{singh2026ranking}; scale non-transfer observed but not
+tested in~\cite{singh2026auditing}. Note: preprints, not peer reviewed.}
+
+% =============================================================================
+\section{Background: \rwmu{} and MOPO-PPO}
+\label{sec:method-paper}
+\todo{Recap in your own words, with more detail than the paper.}
+
+\paragraph{Autoregressive world model}
+\todo{GRU over $M{=}32$ history steps; trained on $N{=}8$-step autoregressive rollouts.}
+
+\paragraph{Ensemble uncertainty}
+\todo{$B$ heads on a shared GRU, each predicting $\mathcal{N}(\mu_b,\sigma_b^2)$; epistemic
+uncertainty}
+\begin{equation}
+  \uepi(t) \;=\; \sum_{d}\operatorname{Var}_b\!\left[\mu_{b,d}(t)\right].
+  \label{eq:uepi}
+\end{equation}
+
+\paragraph{MOPO-PPO}
+\todo{Penalized reward; PPO in imagination.}
+\begin{equation}
+  \tilde r_t \;=\; \hat r_t - \lambda\, u_t .
+  \label{eq:mopo}
+\end{equation}
+
+% =============================================================================
+\section{Our Approach}
+\label{sec:method-ours}
+
+\subsection{Setup}
+\todo{MuJoCo HalfCheetah/Hopper/Walker2d; Minari \texttt{medium} for training (90/10 episode
+split), \texttt{simple}/\texttt{expert} as shifted data. Differences from the paper (no ANYmal /
+Isaac Lab, no privileged heads, NLL loss, optimizer). Mila cluster, 3 seeds.}
+
+\subsection{Ensemble ablations (H1)}
+\todo{Shared vs.\ independent trunk $\times$ Poisson bootstrap; ensemble size 2/5/10;
+mean vs.\ member feedback; NLL vs.\ MSE. 57 models.}
+
+\subsection{Uncertainty metrics (H1--H3)}
+\todo{100-step open-loop rollouts. 1$\sigma$/2$\sigma$ coverage (ideal 68.3\%/95.4\%);
+pooled vs.\ fixed-step Spearman; AUROC for ID vs.\ shifted data, against an oracle that uses the
+true error.}
+
+\subsection{Policy experiments (H4)}
+\todo{PPO in imagination, 50-step rollouts from dataset histories, health-check termination.
+Penalties: $\uepi$ (paper), MOPO max-$\sigma$, max pairwise disagreement; raw vs.\ rescaled by
+$\bar u$ on data; $\lambda\in\{1,3,10,30,100\}$. Evaluated in the real MuJoCo env.}
+
+\subsection{Proposed fix: action-support penalty}
+\todo{BC Gaussian $\pi_b(a\mid o)$ fitted to the data; penalty = mean squared z-score of the
+action, normalized to 1 on data; weight $\beta\in\{0.1,0.3,1,3\}$, alone and with $\uepi$.}
+
+\subsection{Diagnostics}
+\todo{(i) Evaluate from mid-episode dataset states vs.\ reset; (ii) model reward on the
+policy's real trajectories (teacher-forced, open-loop, closed-loop) vs.\ on dataset
+trajectories; (iii) $\uepi$ on policy vs.\ dataset trajectories.}
+
+% =============================================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{The ensemble is overconfident; design changes help little (H1)}
+\todo{Coverage table/figure. Epistemic 1$\sigma$ coverage 0.11--0.26 vs.\ 0.68.
+Independent trunks $+$0.02--0.06, bootstrap $\approx$0, 10 members best. Total calibration
+env-dependent (HalfCheetah 0.71, Hopper 0.36).}
+
+\begin{table}[t]
+\centering
+\caption{Uncertainty quality on held-out data (mean feedback, mean over 3 seeds).
+\todo{fill from \texttt{results.csv}}}
+\label{tab:uncertainty}
+\small
+\begin{tabular}{llccc}
+\toprule
+Env & Ensemble & RMSE@100 & 1$\sigma$ cov.\ (epi) & Spearman (fixed $k$) \\
+\midrule
+\multirow{4}{*}{HalfCheetah} & shared            & & & \\
+                             & shared + boot.    & & & \\
+                             & independent       & & & \\
+                             & indep.\ + boot.   & & & \\
+\midrule
+Hopper   & \dots & & & \\
+Walker2d & \dots & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ranking is not a horizon artifact (H2)}
+\todo{Fixed-step Spearman $\approx$ pooled; H2 rejected (consistent with~\cite{singh2026auditing}).}
+
+\subsection{Shift detection (H3)}
+\todo{AUROC; HalfCheetah \texttt{simple}: 0.98 (uncertainty) vs.\ 0.91 (oracle); Hopper the
+reverse. Poor within-set ranking on shifted data.}
+
+\subsection{Uncertainty penalties do not prevent exploitation (H4)}
+\todo{Real vs.\ imagined reward; HalfCheetah negative under every setting; strong penalties
+cause early termination on Hopper/Walker.}
+
+\begin{figure}[t]
+\centering
+% \includegraphics[width=\linewidth]{policy_lambda.pdf}
+\fbox{\parbox[c][4cm][c]{0.9\linewidth}{\centering \todo{figure: real return vs.\ $\lambda$ per
+penalty type, one panel per env; dashed line = dataset return}}}
+\caption{Real-environment return of policies trained in imagination. \todo{caption}}
+\label{fig:policy}
+\end{figure}
+
+\subsection{Why: shared errors}
+\todo{reward\_check: model accurate on data (12.78 vs.\ 12.79) but 2.2--7.8 vs.\ $-$0.67 on the
+policy's trajectories; $\uepi$ 4--13$\times$ higher on real policy states, but low inside
+imagination under the penalty.}
+
+\subsection{Action-support penalty}
+\todo{Hopper 188 $\to$ 2062 (73\% of data); HalfCheetah still fails although actions look
+in-distribution $\Rightarrow$ state-distribution shift.}
+
+% =============================================================================
+\section{Discussion}
+\label{sec:discussion}
+\todo{What the results mean for \rwmu{}: ranking vs.\ scale; disagreement cannot see shared
+errors; penalty scale vs.\ termination incentive; why the paper's tuned $\lambda$ may have
+worked on ANYmal. Surprises and changed assumptions (e.g.\ our action-saturation explanation was
+incomplete).}
+
+% =============================================================================
+\section{Conclusion, Limitations, and Future Work}
+\label{sec:conclusion}
+\paragraph{Conclusion} \todo{2--3 sentences answering H1--H4.}
+
+\paragraph{Limitations} \todo{MuJoCo not ANYmal; no hardware; Minari medium data only;
+reimplementation deviations; 3 seeds and large policy variance; MuJoCo version 3.17 vs.\ 3.2.3
+used to record datasets; one PPO configuration.}
+
+\paragraph{Future work} \todo{State-distribution penalties or density models; calibrated
+(rescaled) uncertainty~\cite{kuleshov2018calibrated}; termination-aware penalties; testing on
+ANYmal in Isaac Lab.}
+
+% =============================================================================
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+% =============================================================================
+\appendix
+\section{Reproducibility}
+\todo{Code: \url{https://github.com/natalia-espinosadice/comp765_uncertainty}. Hyperparameters,
+compute (Mila, $\sim$560 GPU jobs), deviations list from README.}
+
+\end{document}
