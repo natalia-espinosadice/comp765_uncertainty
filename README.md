@@ -54,7 +54,25 @@ The local smoke test used generated data (`--train gym:HalfCheetah-v5:sine:12`),
 Hugging Face is unreachable from the build machine. The Minari dataset names have not been verified
 yet; `setup_mila.sh` prints them as it downloads.
 
-## Stretch (Idea 2, only if Idea 1 models are done by ~Nov 29)
-MOPO-PPO in imagination using the reward head. Compare penalties: Var of means (paper), MOPO's max
-aleatoric σ, and max pairwise disagreement, each raw vs. normalised by its value on the training
-data. Evaluate the policies in the real MuJoCo env. Not implemented yet.
+## Stretch (Idea 2): does the penalty choice matter for the policy?
+`uwm/policy.py` trains a PPO policy purely inside a trained world model (MOPO-style) and then
+evaluates it in the real MuJoCo env. Per imagined step the reward is
+`r_hat / r_std - lam * u / u_ref`, where `u_ref` is the mean of `u` on one-step training predictions
+(`--raw` drops the `/ u_ref`). Penalties `u`:
+- `epi`: sum over dims of the ensemble variance of the means (RWM-U, Eq. 4)
+- `ale`: max over members of the norm of the predicted std (MOPO)
+- `pair`: max pairwise distance between member means (MOReL-style)
+- `none`: no penalty
+
+Rollouts start from 32-step true histories from the training split, run 50 imagined steps, and stop
+at the Gymnasium health check for Hopper/Walker2d (checked to match the real envs exactly).
+Grid: 3 envs x {shared, independent} world models x 7 penalty settings x 3 seeds = 126 jobs.
+
+```bash
+module load python/3.10; source ~/venvs/uwm-cu126/bin/activate
+python slurm/make_policy_grid.py
+sbatch --array=0-125%20 slurm/run_policy.sbatch
+python -m uwm.aggregate_policy --runs $SCRATCH/uwm_policy --out policy_results.csv
+```
+Main readouts: real return vs. the dataset's average return, and the exploitation gap
+(imagined minus real reward per step; large = the policy exploits model errors).

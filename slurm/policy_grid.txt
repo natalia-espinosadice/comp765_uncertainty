@@ -1,0 +1,126 @@
+halfcheetah_shared_none_none_s0|halfcheetah_shared_none_s0|--penalty none --seed 0
+halfcheetah_shared_none_epi_norm_s0|halfcheetah_shared_none_s0|--penalty epi --lam 1 --seed 0
+halfcheetah_shared_none_epi_raw_s0|halfcheetah_shared_none_s0|--penalty epi --lam 1 --raw --seed 0
+halfcheetah_shared_none_ale_norm_s0|halfcheetah_shared_none_s0|--penalty ale --lam 1 --seed 0
+halfcheetah_shared_none_ale_raw_s0|halfcheetah_shared_none_s0|--penalty ale --lam 1 --raw --seed 0
+halfcheetah_shared_none_pair_norm_s0|halfcheetah_shared_none_s0|--penalty pair --lam 1 --seed 0
+halfcheetah_shared_none_pair_raw_s0|halfcheetah_shared_none_s0|--penalty pair --lam 1 --raw --seed 0
+halfcheetah_shared_none_none_s1|halfcheetah_shared_none_s1|--penalty none --seed 1
+halfcheetah_shared_none_epi_norm_s1|halfcheetah_shared_none_s1|--penalty epi --lam 1 --seed 1
+halfcheetah_shared_none_epi_raw_s1|halfcheetah_shared_none_s1|--penalty epi --lam 1 --raw --seed 1
+halfcheetah_shared_none_ale_norm_s1|halfcheetah_shared_none_s1|--penalty ale --lam 1 --seed 1
+halfcheetah_shared_none_ale_raw_s1|halfcheetah_shared_none_s1|--penalty ale --lam 1 --raw --seed 1
+halfcheetah_shared_none_pair_norm_s1|halfcheetah_shared_none_s1|--penalty pair --lam 1 --seed 1
+halfcheetah_shared_none_pair_raw_s1|halfcheetah_shared_none_s1|--penalty pair --lam 1 --raw --seed 1
+halfcheetah_shared_none_none_s2|halfcheetah_shared_none_s2|--penalty none --seed 2
+halfcheetah_shared_none_epi_norm_s2|halfcheetah_shared_none_s2|--penalty epi --lam 1 --seed 2
+halfcheetah_shared_none_epi_raw_s2|halfcheetah_shared_none_s2|--penalty epi --lam 1 --raw --seed 2
+halfcheetah_shared_none_ale_norm_s2|halfcheetah_shared_none_s2|--penalty ale --lam 1 --seed 2
+halfcheetah_shared_none_ale_raw_s2|halfcheetah_shared_none_s2|--penalty ale --lam 1 --raw --seed 2
+halfcheetah_shared_none_pair_norm_s2|halfcheetah_shared_none_s2|--penalty pair --lam 1 --seed 2
+halfcheetah_shared_none_pair_raw_s2|halfcheetah_shared_none_s2|--penalty pair --lam 1 --raw --seed 2
+halfcheetah_independent_none_none_s0|halfcheetah_independent_none_s0|--penalty none --seed 0
+halfcheetah_independent_none_epi_norm_s0|halfcheetah_independent_none_s0|--penalty epi --lam 1 --seed 0
+halfcheetah_independent_none_epi_raw_s0|halfcheetah_independent_none_s0|--penalty epi --lam 1 --raw --seed 0
+halfcheetah_independent_none_ale_norm_s0|halfcheetah_independent_none_s0|--penalty ale --lam 1 --seed 0
+halfcheetah_independent_none_ale_raw_s0|halfcheetah_independent_none_s0|--penalty ale --lam 1 --raw --seed 0
+halfcheetah_independent_none_pair_norm_s0|halfcheetah_independent_none_s0|--penalty pair --lam 1 --seed 0
+halfcheetah_independent_none_pair_raw_s0|halfcheetah_independent_none_s0|--penalty pair --lam 1 --raw --seed 0
+halfcheetah_independent_none_none_s1|halfcheetah_independent_none_s1|--penalty none --seed 1
+halfcheetah_independent_none_epi_norm_s1|halfcheetah_independent_none_s1|--penalty epi --lam 1 --seed 1
+halfcheetah_independent_none_epi_raw_s1|halfcheetah_independent_none_s1|--penalty epi --lam 1 --raw --seed 1
+halfcheetah_independent_none_ale_norm_s1|halfcheetah_independent_none_s1|--penalty ale --lam 1 --seed 1
+halfcheetah_independent_none_ale_raw_s1|halfcheetah_independent_none_s1|--penalty ale --lam 1 --raw --seed 1
+halfcheetah_independent_none_pair_norm_s1|halfcheetah_independent_none_s1|--penalty pair --lam 1 --seed 1
+halfcheetah_independent_none_pair_raw_s1|halfcheetah_independent_none_s1|--penalty pair --lam 1 --raw --seed 1
+halfcheetah_independent_none_none_s2|halfcheetah_independent_none_s2|--penalty none --seed 2
+halfcheetah_independent_none_epi_norm_s2|halfcheetah_independent_none_s2|--penalty epi --lam 1 --seed 2
+halfcheetah_independent_none_epi_raw_s2|halfcheetah_independent_none_s2|--penalty epi --lam 1 --raw --seed 2
+halfcheetah_independent_none_ale_norm_s2|halfcheetah_independent_none_s2|--penalty ale --lam 1 --seed 2
+halfcheetah_independent_none_ale_raw_s2|halfcheetah_independent_none_s2|--penalty ale --lam 1 --raw --seed 2
+halfcheetah_independent_none_pair_norm_s2|halfcheetah_independent_none_s2|--penalty pair --lam 1 --seed 2
+halfcheetah_independent_none_pair_raw_s2|halfcheetah_independent_none_s2|--penalty pair --lam 1 --raw --seed 2
+hopper_shared_none_none_s0|hopper_shared_none_s0|--penalty none --seed 0
+hopper_shared_none_epi_norm_s0|hopper_shared_none_s0|--penalty epi --lam 1 --seed 0
+hopper_shared_none_epi_raw_s0|hopper_shared_none_s0|--penalty epi --lam 1 --raw --seed 0
+hopper_shared_none_ale_norm_s0|hopper_shared_none_s0|--penalty ale --lam 1 --seed 0
+hopper_shared_none_ale_raw_s0|hopper_shared_none_s0|--penalty ale --lam 1 --raw --seed 0
+hopper_shared_none_pair_norm_s0|hopper_shared_none_s0|--penalty pair --lam 1 --seed 0
+hopper_shared_none_pair_raw_s0|hopper_shared_none_s0|--penalty pair --lam 1 --raw --seed 0
+hopper_shared_none_none_s1|hopper_shared_none_s1|--penalty none --seed 1
+hopper_shared_none_epi_norm_s1|hopper_shared_none_s1|--penalty epi --lam 1 --seed 1
+hopper_shared_none_epi_raw_s1|hopper_shared_none_s1|--penalty epi --lam 1 --raw --seed 1
+hopper_shared_none_ale_norm_s1|hopper_shared_none_s1|--penalty ale --lam 1 --seed 1
+hopper_shared_none_ale_raw_s1|hopper_shared_none_s1|--penalty ale --lam 1 --raw --seed 1
+hopper_shared_none_pair_norm_s1|hopper_shared_none_s1|--penalty pair --lam 1 --seed 1
+hopper_shared_none_pair_raw_s1|hopper_shared_none_s1|--penalty pair --lam 1 --raw --seed 1
+hopper_shared_none_none_s2|hopper_shared_none_s2|--penalty none --seed 2
+hopper_shared_none_epi_norm_s2|hopper_shared_none_s2|--penalty epi --lam 1 --seed 2
+hopper_shared_none_epi_raw_s2|hopper_shared_none_s2|--penalty epi --lam 1 --raw --seed 2
+hopper_shared_none_ale_norm_s2|hopper_shared_none_s2|--penalty ale --lam 1 --seed 2
+hopper_shared_none_ale_raw_s2|hopper_shared_none_s2|--penalty ale --lam 1 --raw --seed 2
+hopper_shared_none_pair_norm_s2|hopper_shared_none_s2|--penalty pair --lam 1 --seed 2
+hopper_shared_none_pair_raw_s2|hopper_shared_none_s2|--penalty pair --lam 1 --raw --seed 2
+hopper_independent_none_none_s0|hopper_independent_none_s0|--penalty none --seed 0
+hopper_independent_none_epi_norm_s0|hopper_independent_none_s0|--penalty epi --lam 1 --seed 0
+hopper_independent_none_epi_raw_s0|hopper_independent_none_s0|--penalty epi --lam 1 --raw --seed 0
+hopper_independent_none_ale_norm_s0|hopper_independent_none_s0|--penalty ale --lam 1 --seed 0
+hopper_independent_none_ale_raw_s0|hopper_independent_none_s0|--penalty ale --lam 1 --raw --seed 0
+hopper_independent_none_pair_norm_s0|hopper_independent_none_s0|--penalty pair --lam 1 --seed 0
+hopper_independent_none_pair_raw_s0|hopper_independent_none_s0|--penalty pair --lam 1 --raw --seed 0
+hopper_independent_none_none_s1|hopper_independent_none_s1|--penalty none --seed 1
+hopper_independent_none_epi_norm_s1|hopper_independent_none_s1|--penalty epi --lam 1 --seed 1
+hopper_independent_none_epi_raw_s1|hopper_independent_none_s1|--penalty epi --lam 1 --raw --seed 1
+hopper_independent_none_ale_norm_s1|hopper_independent_none_s1|--penalty ale --lam 1 --seed 1
+hopper_independent_none_ale_raw_s1|hopper_independent_none_s1|--penalty ale --lam 1 --raw --seed 1
+hopper_independent_none_pair_norm_s1|hopper_independent_none_s1|--penalty pair --lam 1 --seed 1
+hopper_independent_none_pair_raw_s1|hopper_independent_none_s1|--penalty pair --lam 1 --raw --seed 1
+hopper_independent_none_none_s2|hopper_independent_none_s2|--penalty none --seed 2
+hopper_independent_none_epi_norm_s2|hopper_independent_none_s2|--penalty epi --lam 1 --seed 2
+hopper_independent_none_epi_raw_s2|hopper_independent_none_s2|--penalty epi --lam 1 --raw --seed 2
+hopper_independent_none_ale_norm_s2|hopper_independent_none_s2|--penalty ale --lam 1 --seed 2
+hopper_independent_none_ale_raw_s2|hopper_independent_none_s2|--penalty ale --lam 1 --raw --seed 2
+hopper_independent_none_pair_norm_s2|hopper_independent_none_s2|--penalty pair --lam 1 --seed 2
+hopper_independent_none_pair_raw_s2|hopper_independent_none_s2|--penalty pair --lam 1 --raw --seed 2
+walker2d_shared_none_none_s0|walker2d_shared_none_s0|--penalty none --seed 0
+walker2d_shared_none_epi_norm_s0|walker2d_shared_none_s0|--penalty epi --lam 1 --seed 0
+walker2d_shared_none_epi_raw_s0|walker2d_shared_none_s0|--penalty epi --lam 1 --raw --seed 0
+walker2d_shared_none_ale_norm_s0|walker2d_shared_none_s0|--penalty ale --lam 1 --seed 0
+walker2d_shared_none_ale_raw_s0|walker2d_shared_none_s0|--penalty ale --lam 1 --raw --seed 0
+walker2d_shared_none_pair_norm_s0|walker2d_shared_none_s0|--penalty pair --lam 1 --seed 0
+walker2d_shared_none_pair_raw_s0|walker2d_shared_none_s0|--penalty pair --lam 1 --raw --seed 0
+walker2d_shared_none_none_s1|walker2d_shared_none_s1|--penalty none --seed 1
+walker2d_shared_none_epi_norm_s1|walker2d_shared_none_s1|--penalty epi --lam 1 --seed 1
+walker2d_shared_none_epi_raw_s1|walker2d_shared_none_s1|--penalty epi --lam 1 --raw --seed 1
+walker2d_shared_none_ale_norm_s1|walker2d_shared_none_s1|--penalty ale --lam 1 --seed 1
+walker2d_shared_none_ale_raw_s1|walker2d_shared_none_s1|--penalty ale --lam 1 --raw --seed 1
+walker2d_shared_none_pair_norm_s1|walker2d_shared_none_s1|--penalty pair --lam 1 --seed 1
+walker2d_shared_none_pair_raw_s1|walker2d_shared_none_s1|--penalty pair --lam 1 --raw --seed 1
+walker2d_shared_none_none_s2|walker2d_shared_none_s2|--penalty none --seed 2
+walker2d_shared_none_epi_norm_s2|walker2d_shared_none_s2|--penalty epi --lam 1 --seed 2
+walker2d_shared_none_epi_raw_s2|walker2d_shared_none_s2|--penalty epi --lam 1 --raw --seed 2
+walker2d_shared_none_ale_norm_s2|walker2d_shared_none_s2|--penalty ale --lam 1 --seed 2
+walker2d_shared_none_ale_raw_s2|walker2d_shared_none_s2|--penalty ale --lam 1 --raw --seed 2
+walker2d_shared_none_pair_norm_s2|walker2d_shared_none_s2|--penalty pair --lam 1 --seed 2
+walker2d_shared_none_pair_raw_s2|walker2d_shared_none_s2|--penalty pair --lam 1 --raw --seed 2
+walker2d_independent_none_none_s0|walker2d_independent_none_s0|--penalty none --seed 0
+walker2d_independent_none_epi_norm_s0|walker2d_independent_none_s0|--penalty epi --lam 1 --seed 0
+walker2d_independent_none_epi_raw_s0|walker2d_independent_none_s0|--penalty epi --lam 1 --raw --seed 0
+walker2d_independent_none_ale_norm_s0|walker2d_independent_none_s0|--penalty ale --lam 1 --seed 0
+walker2d_independent_none_ale_raw_s0|walker2d_independent_none_s0|--penalty ale --lam 1 --raw --seed 0
+walker2d_independent_none_pair_norm_s0|walker2d_independent_none_s0|--penalty pair --lam 1 --seed 0
+walker2d_independent_none_pair_raw_s0|walker2d_independent_none_s0|--penalty pair --lam 1 --raw --seed 0
+walker2d_independent_none_none_s1|walker2d_independent_none_s1|--penalty none --seed 1
+walker2d_independent_none_epi_norm_s1|walker2d_independent_none_s1|--penalty epi --lam 1 --seed 1
+walker2d_independent_none_epi_raw_s1|walker2d_independent_none_s1|--penalty epi --lam 1 --raw --seed 1
+walker2d_independent_none_ale_norm_s1|walker2d_independent_none_s1|--penalty ale --lam 1 --seed 1
+walker2d_independent_none_ale_raw_s1|walker2d_independent_none_s1|--penalty ale --lam 1 --raw --seed 1
+walker2d_independent_none_pair_norm_s1|walker2d_independent_none_s1|--penalty pair --lam 1 --seed 1
+walker2d_independent_none_pair_raw_s1|walker2d_independent_none_s1|--penalty pair --lam 1 --raw --seed 1
+walker2d_independent_none_none_s2|walker2d_independent_none_s2|--penalty none --seed 2
+walker2d_independent_none_epi_norm_s2|walker2d_independent_none_s2|--penalty epi --lam 1 --seed 2
+walker2d_independent_none_epi_raw_s2|walker2d_independent_none_s2|--penalty epi --lam 1 --raw --seed 2
+walker2d_independent_none_ale_norm_s2|walker2d_independent_none_s2|--penalty ale --lam 1 --seed 2
+walker2d_independent_none_ale_raw_s2|walker2d_independent_none_s2|--penalty ale --lam 1 --raw --seed 2
+walker2d_independent_none_pair_norm_s2|walker2d_independent_none_s2|--penalty pair --lam 1 --seed 2
+walker2d_independent_none_pair_raw_s2|walker2d_independent_none_s2|--penalty pair --lam 1 --raw --seed 2
