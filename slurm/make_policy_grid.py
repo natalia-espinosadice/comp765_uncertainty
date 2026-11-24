@@ -24,5 +24,11 @@ for env in ["halfcheetah", "hopper", "walker2d"]:
                     lam_rows.append(f"{env}_{wm}_{pen}_norm_lam{lam}_s{s}|{env}_{wm}_s{s}|--penalty {pen} --lam {lam} --seed {s}")
 Path(__file__).with_name("policy_grid_lam.txt").write_text("\n".join(lam_rows) + "\n")
 print(len(lam_rows), "lam-sweep jobs")
+# Re-run of the unpenalised baseline with the imagined epistemic u logged (first batch lacked it).
+none_rows = [f"{env}_{wm}_none_v2_s{s}|{env}_{wm}_s{s}|--penalty none --seed {s}"
+             for env in ["halfcheetah", "hopper", "walker2d"] for wm in ["shared_none", "independent_none"]
+             for s in [0, 1, 2]]
+Path(__file__).with_name("policy_grid_none.txt").write_text("\n".join(none_rows) + "\n")
+print(len(none_rows), "baseline re-runs")
 Path(__file__).with_name("policy_grid.txt").write_text("\n".join(rows) + "\n")
 print(len(rows), "jobs")

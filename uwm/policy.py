@@ -260,7 +260,7 @@ def main(argv=None):
         logp_b = torch.zeros(H, B, device=dev); rew_b = torch.zeros(H, B, device=dev)
         val_b = torch.zeros(H + 1, B, device=dev); alive_b = torch.zeros(H, B, device=dev)
         done_b = torch.zeros(H, B, device=dev)
-        r_model_sum = torch.zeros(B, device=dev); u_sum = 0.0; n_alive = 0.0; sat = 0.0
+        r_model_sum = torch.zeros(B, device=dev); u_sum = 0.0; n_alive = 0.0; sat = 0.0; ue_sum = 0.0
         with torch.no_grad():
             oh, ah, _ = starts(B)
             img.reset(oh, ah)
@@ -276,6 +276,7 @@ def main(argv=None):
                 rew_b[t] = (r_real / r_std - lam * scale * u) * alive
                 r_model_sum += r_real * alive
                 u_sum += float((u * alive).sum()); n_alive += float(alive.sum())
+                ue_sum += float((penalty("epi", mu, ls) * alive).sum())   # logged for every run
                 sat += float(((ac.pi(o).abs() > 1).float().mean(-1) * alive).sum())
                 term = terminated(kind, img.cur * o_std + o_mean).float()
                 done_b[t] = term * alive
@@ -313,7 +314,8 @@ def main(argv=None):
         row = dict(it=it, img_reward_per_step=float(r_model_sum.sum() / n_alive),
                    img_alive_frac=float(alive_b.mean()), u_mean=u_sum / n_alive,
                    u_mean_rel=(u_sum / n_alive) / u_ref[a.penalty] if a.penalty != "none" else 0.0,
-                   pi_std=float(ac.log_std.exp().mean()), act_saturated=sat / n_alive, sec=time.time() - t0)
+                   pi_std=float(ac.log_std.exp().mean()), act_saturated=sat / n_alive,
+                   u_epi_rel=(ue_sum / n_alive) / u_ref["epi"], sec=time.time() - t0)
         if it % a.eval_every == 0 or it == a.iters:
             ev = evaluate_real(ac, env, norm, dev, a.final_episodes if it == a.iters else a.eval_episodes,
                                seed=10_000 + it)
@@ -330,7 +332,7 @@ def main(argv=None):
     result = dict(args=vars(a), wm_args=wa, env=kind, u_ref=u_ref, dataset_return=data_ret,
                   dataset_len=data_len, final_real=final, evals=evals,
                   final_img_reward_per_step=log[-1]["img_reward_per_step"], final_u_mean_rel=log[-1]["u_mean_rel"],
-                  final_act_saturated=log[-1]["act_saturated"],
+                  final_act_saturated=log[-1]["act_saturated"], final_u_epi_rel=log[-1]["u_epi_rel"],
                   exploitation_gap=log[-1]["img_reward_per_step"] - final["per_step"])
     (out / "result.json").write_text(json.dumps(result, indent=1))
     print(f"[done] real return {final['ret_mean']:.1f} ± {final['ret_std']:.1f} (dataset {data_ret:.1f}); "
