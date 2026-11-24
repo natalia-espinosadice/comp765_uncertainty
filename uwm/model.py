@@ -18,12 +18,14 @@ import torch.nn as nn
 
 LOGSTD_MIN, LOGSTD_MAX = -6.0, 1.0
 
-# Recent PyTorch wheels ship a cuDNN that refuses GPUs older than compute capability 7.5
-# (e.g. Mila's V100s: "cuDNN version ... is not compatible with devices with SM < 7.5").
-# On those GPUs fall back to PyTorch's native GRU kernels: slower, but numerically equivalent.
-if torch.cuda.is_available() and torch.cuda.get_device_capability() < (7, 5):
-    torch.backends.cudnn.enabled = False
-    print(f"[model] {torch.cuda.get_device_name()} has SM < 7.5: cuDNN disabled", flush=True)
+# Safety net: if the installed cuDNN refuses this GPU, fall back to PyTorch's native GRU kernels
+# (slower, numerically equivalent). With the cu126 wheel from setup_mila.sh this should not fire.
+if torch.cuda.is_available():
+    try:
+        torch.backends.cudnn.is_acceptable(torch.zeros(1, device="cuda"))
+    except RuntimeError as _ex:
+        torch.backends.cudnn.enabled = False
+        print(f"[model] cuDNN unusable on {torch.cuda.get_device_name()}, disabled: {_ex}", flush=True)
 
 
 class Head(nn.Module):

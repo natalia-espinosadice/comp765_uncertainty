@@ -9,7 +9,7 @@
 #SBATCH --output=logs/%x_%A_%a.out
 set -euo pipefail
 module load python/3.10
-source $HOME/venvs/uwm/bin/activate
+source ${UWM_VENV:-$HOME/venvs/uwm-cu126}/bin/activate
 export MINARI_DATASETS_PATH=$SCRATCH/minari
 cd "$SLURM_SUBMIT_DIR"
 
