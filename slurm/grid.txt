@@ -1,0 +1,57 @@
+halfcheetah_shared_none_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --seed 0
+halfcheetah_shared_none_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --seed 1
+halfcheetah_shared_none_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --seed 2
+halfcheetah_shared_poisson_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap poisson --seed 0
+halfcheetah_shared_poisson_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap poisson --seed 1
+halfcheetah_shared_poisson_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap poisson --seed 2
+halfcheetah_independent_none_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --seed 0
+halfcheetah_independent_none_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --seed 1
+halfcheetah_independent_none_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --seed 2
+halfcheetah_independent_poisson_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap poisson --seed 0
+halfcheetah_independent_poisson_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap poisson --seed 1
+halfcheetah_independent_poisson_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap poisson --seed 2
+hopper_shared_none_s0|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap none --seed 0
+hopper_shared_none_s1|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap none --seed 1
+hopper_shared_none_s2|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap none --seed 2
+hopper_shared_poisson_s0|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap poisson --seed 0
+hopper_shared_poisson_s1|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap poisson --seed 1
+hopper_shared_poisson_s2|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk shared --bootstrap poisson --seed 2
+hopper_independent_none_s0|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap none --seed 0
+hopper_independent_none_s1|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap none --seed 1
+hopper_independent_none_s2|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap none --seed 2
+hopper_independent_poisson_s0|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap poisson --seed 0
+hopper_independent_poisson_s1|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap poisson --seed 1
+hopper_independent_poisson_s2|minari:mujoco/hopper/medium-v0|minari:mujoco/hopper/simple-v0 minari:mujoco/hopper/expert-v0|--trunk independent --bootstrap poisson --seed 2
+walker2d_shared_none_s0|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap none --seed 0
+walker2d_shared_none_s1|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap none --seed 1
+walker2d_shared_none_s2|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap none --seed 2
+walker2d_shared_poisson_s0|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap poisson --seed 0
+walker2d_shared_poisson_s1|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap poisson --seed 1
+walker2d_shared_poisson_s2|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk shared --bootstrap poisson --seed 2
+walker2d_independent_none_s0|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap none --seed 0
+walker2d_independent_none_s1|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap none --seed 1
+walker2d_independent_none_s2|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap none --seed 2
+walker2d_independent_poisson_s0|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap poisson --seed 0
+walker2d_independent_poisson_s1|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap poisson --seed 1
+walker2d_independent_poisson_s2|minari:mujoco/walker2d/medium-v0|minari:mujoco/walker2d/simple-v0 minari:mujoco/walker2d/expert-v0|--trunk independent --bootstrap poisson --seed 2
+halfcheetah_shared_none_E2_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 2 --seed 0
+halfcheetah_shared_none_E2_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 2 --seed 1
+halfcheetah_shared_none_E2_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 2 --seed 2
+halfcheetah_independent_none_E2_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 2 --seed 0
+halfcheetah_independent_none_E2_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 2 --seed 1
+halfcheetah_independent_none_E2_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 2 --seed 2
+halfcheetah_shared_none_E10_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 10 --seed 0
+halfcheetah_shared_none_E10_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 10 --seed 1
+halfcheetah_shared_none_E10_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --members 10 --seed 2
+halfcheetah_independent_none_E10_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 10 --seed 0
+halfcheetah_independent_none_E10_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 10 --seed 1
+halfcheetah_independent_none_E10_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --members 10 --seed 2
+halfcheetah_shared_none_fbmember_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --feedback member --seed 0
+halfcheetah_shared_none_fbmember_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --feedback member --seed 1
+halfcheetah_shared_none_fbmember_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --feedback member --seed 2
+halfcheetah_independent_none_fbmember_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --feedback member --seed 0
+halfcheetah_independent_none_fbmember_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --feedback member --seed 1
+halfcheetah_independent_none_fbmember_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk independent --bootstrap none --feedback member --seed 2
+halfcheetah_shared_none_mse_s0|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --loss mse --seed 0
+halfcheetah_shared_none_mse_s1|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --loss mse --seed 1
+halfcheetah_shared_none_mse_s2|minari:mujoco/halfcheetah/medium-v0|minari:mujoco/halfcheetah/simple-v0 minari:mujoco/halfcheetah/expert-v0|--trunk shared --bootstrap none --loss mse --seed 2

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+logs/*
+!logs/.keep
+runs/
+*.egg-info/
+MUJOCO_LOG.TXT
+results*.csv
