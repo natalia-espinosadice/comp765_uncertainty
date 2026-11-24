@@ -54,12 +54,13 @@ def main(argv=None):
 
     def model_rewards(o_n, act):
         """o_n [B, M+H+1, D] normalised real obs, act [B, M+H, A] -> (tf [B,H], ol [B,H])."""
-        tf = []
+        tf, tfu = [], []
         for k in range(H):                                           # one step ahead, true history
-            _, _, rr = model.rollout(o_n[:, k:k + M], act[:, k:], 1)
-            tf.append(rs(rr.mean(0)[:, 0]))
-        _, _, rr = model.rollout(o_n[:, :M], act, H)
-        return torch.stack(tf, 1), rs(rr.mean(0))
+            mu, _, rr = model.rollout(o_n[:, k:k + M], act[:, k:], 1)
+            tf.append(rs(rr.mean(0)[:, 0])); tfu.append(mu.var(0, unbiased=False).sum(-1)[:, 0])
+        mu, _, rr = model.rollout(o_n[:, :M], act, H)
+        u_ol = mu.var(0, unbiased=False).sum(-1)                     # [B, H]
+        return torch.stack(tf, 1), rs(rr.mean(0)), torch.stack(tfu, 1), u_ol
 
     # --- policy in the real env
     O, A_, R = [], [], []
@@ -80,7 +81,7 @@ def main(argv=None):
         o_n = torch.as_tensor(np.clip(norm.obs(np.array(O)), -OBS_CLIP, OBS_CLIP), dtype=torch.float32)
         act = torch.as_tensor(np.array(A_), dtype=torch.float32)
         real = np.array(R)[:, M - 1:M - 1 + H]
-        tf, ol = model_rewards(o_n, act)
+        tf, ol, tfu, olu = model_rewards(o_n, act)
         img = Imagination(model); img.reset(o_n[:, :M], act[:, :M - 1])
         cl, cur = [], img.cur
         for k in range(H):
@@ -88,7 +89,9 @@ def main(argv=None):
             cl.append(rs(rr.mean(0)))
         out["policy"] = dict(n=len(O), real=float(real.mean()), teacher_forced=float(tf.mean()),
                              open_loop=float(ol.mean()), closed_loop_imagined=float(torch.stack(cl).mean()),
-                             act_abs_mean=float(act.abs().mean()), act_saturated=float((act.abs() > 0.99).float().mean()))
+                             act_abs_mean=float(act.abs().mean()), act_saturated=float((act.abs() > 0.99).float().mean()),
+                             u_teacher_forced=float(tfu.mean()), u_open_loop=float(olu.mean()),
+                             u_open_loop_last=float(olu[:, -1].mean()))
     else:
         out["policy"] = "every episode terminated before hist+horizon steps"
 
@@ -99,10 +102,12 @@ def main(argv=None):
     ids = np.random.default_rng(0).choice(len(W), min(64, len(W)), replace=False)
     o_n, act, rr_n = (torch.from_numpy(x) for x in W.get(ids))
     real = rs(rr_n[:, M - 1:M - 1 + H])
-    tf, ol = model_rewards(o_n, act)
+    tf, ol, tfu, olu = model_rewards(o_n, act)
     out["dataset"] = dict(n=len(ids), real=float(real.mean()), teacher_forced=float(tf.mean()),
                           open_loop=float(ol.mean()), act_abs_mean=float(act.abs().mean()),
-                          act_saturated=float((act.abs() > 0.99).float().mean()))
+                          act_saturated=float((act.abs() > 0.99).float().mean()),
+                          u_teacher_forced=float(tfu.mean()), u_open_loop=float(olu.mean()),
+                          u_open_loop_last=float(olu[:, -1].mean()))
     print(json.dumps(dict(run=Path(a.policy).name, **out), indent=1))
 
 
